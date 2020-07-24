@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-400f * Time.deltaTime, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-800f * Time.deltaTime, 0));
             gameObject.GetComponent<Animator>().SetBool("moving", true);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(400f * Time.deltaTime, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(800f * Time.deltaTime, 0));
             gameObject.GetComponent<Animator>().SetBool("moving", true);
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown("up") || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && canJump)
         {
             canJump = false;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 105f));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 210f));
             SoundManager.PlaySound("jump");
         }
         JumpAnimator();

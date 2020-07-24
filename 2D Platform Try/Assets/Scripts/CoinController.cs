@@ -8,20 +8,20 @@ public class CoinController : MonoBehaviour
     float timer;
     public ScoreManager scoreManager;
 
+    private void Start()
+    {
+        timer = 0;
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 2f && SceneManager.GetActiveScene().name == "Scene1")
+        if (timer >= 2f && (SceneManager.GetActiveScene().name == "Scene1" || SceneManager.GetActiveScene().name == "2P"))
         {
             Destroy(transform.parent.gameObject);
             timer = 0f;
         }
         if (timer >= 1.75f && SceneManager.GetActiveScene().name == "Scene2")
-        {
-            Destroy(transform.parent.gameObject);
-            timer = 0f;
-        }
-        if (timer >= 2f && SceneManager.GetActiveScene().name == "2P")
         {
             Destroy(transform.parent.gameObject);
             timer = 0f;
@@ -38,17 +38,17 @@ public class CoinController : MonoBehaviour
             SceneManager.GetActiveScene().name == "Scene2" ||
             SceneManager.GetActiveScene().name == "Scene3")
         {
-            ScoreManager.scoreManager.RaiseScore(1);
+            scoreManager.RaiseScore(1);
         }
         else if (SceneManager.GetActiveScene().name == "2P")
         {
             if (collision.transform.tag == "player")
             {
-                ScoreManager.scoreManager.RaiseScore2(1, 0);
+                scoreManager.RaiseScore2(1, 0);
             }
             if (collision.transform.tag == "player2")
             {
-                ScoreManager.scoreManager.RaiseScore2(0, 1);
+                scoreManager.RaiseScore2(0, 1);
             }
         }
         

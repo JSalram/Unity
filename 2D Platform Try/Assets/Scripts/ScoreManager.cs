@@ -18,17 +18,17 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         scoreManager = this;
-        if (SceneManager.GetActiveScene().name == "Scene1")
+        if (SceneManager.GetActiveScene().name == "Scene1" || SceneManager.GetActiveScene().name == "Scene2")
         {
             timer = 31f;
         }
-        if (SceneManager.GetActiveScene().name == "Scene2")
-        {
-            timer = 31f;
-        }
-        if (SceneManager.GetActiveScene().name == "Scene3")
+        else if (SceneManager.GetActiveScene().name == "Scene3")
         {
             timer = 26f;
+        }
+        else
+        {
+            timer = 0f;
         }
     }
 

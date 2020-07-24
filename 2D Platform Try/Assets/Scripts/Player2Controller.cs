@@ -9,13 +9,13 @@ public class Player2Controller : MonoBehaviour
     {
         if (Input.GetKey("j"))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-400f * Time.deltaTime, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-800f * Time.deltaTime, 0));
             gameObject.GetComponent<Animator>().SetBool("moving", true);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey("l"))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(400f * Time.deltaTime, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(800f * Time.deltaTime, 0));
             gameObject.GetComponent<Animator>().SetBool("moving", true);
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
@@ -27,7 +27,7 @@ public class Player2Controller : MonoBehaviour
         if ((Input.GetKeyDown("i")) && canJump)
         {
             canJump = false;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 105f));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 210f));
             SoundManager.PlaySound("jump");
         }
         JumpAnimator();
